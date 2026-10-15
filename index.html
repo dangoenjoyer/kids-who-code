@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kids Who Code: Scratch Coding Lessons for Kids</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1f2340;
+    --paper: #f7f9ff;
+    --blue: #3d7bff;
+    --yellow: #ffc93c;
+    --mint: #3fd6a5;
+    --coral: #ff6b5e;
+    --purple: #8a63ff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 18px/1.6 "Nunito", system-ui, sans-serif;
+  }
+  h1, h2, h3 { font-family: "Fredoka", "Nunito", system-ui, sans-serif; line-height: 1.15; margin: 0 0 .5em; }
+  h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+  h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+  h3 { font-size: 1.3rem; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 22px; }
+
+  /* top bar */
+  header { padding: 18px 0; }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .logo { font-family: "Fredoka", sans-serif; font-weight: 600; font-size: 1.3rem; text-decoration: none; color: var(--ink); }
+  nav a { margin-left: 20px; color: var(--ink); text-decoration: none; font-weight: 700; }
+  nav a:hover { text-decoration: underline; text-decoration-thickness: 3px; text-decoration-color: var(--blue); }
+
+  /* hero */
+  .hero { padding: 40px 0 70px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+  .hero p { font-size: 1.2rem; max-width: 34ch; }
+  .btn {
+    display: inline-block; background: var(--ink); color: #fff; text-decoration: none;
+    font-family: "Fredoka", sans-serif; font-weight: 500; font-size: 1.15rem;
+    padding: 14px 28px; border-radius: 999px; margin-top: 8px;
+    box-shadow: 0 5px 0 var(--blue);
+  }
+  .btn:hover { transform: translateY(2px); box-shadow: 0 3px 0 var(--blue); }
+
+  /* the one memorable thing: a stack of code blocks */
+  .stack { max-width: 360px; justify-self: center; width: 100%; }
+  .block {
+    position: relative; color: #fff; font-weight: 700; padding: 14px 18px;
+    border-radius: 8px; margin-bottom: 4px; font-size: 1rem;
+  }
+  .block::before {
+    content: ""; position: absolute; top: -8px; left: 22px; width: 30px; height: 8px;
+    background: inherit; border-radius: 6px 6px 0 0;
+  }
+  .block.hat { border-radius: 40px 40px 8px 8px; padding-top: 20px; }
+  .block.hat::before { display: none; }
+  .b-yellow { background: var(--yellow); color: var(--ink); }
+  .b-blue { background: var(--blue); }
+  .b-purple { background: var(--purple); }
+  .b-mint { background: var(--mint); color: var(--ink); }
+  .b-coral { background: var(--coral); }
+  .indent { margin-left: 28px; }
+  .pill { background: #fff; color: var(--ink); padding: 2px 12px; border-radius: 999px; margin: 0 2px; display: inline-block; }
+
+  /* sections */
+  section { padding: 70px 0; }
+  .band { background: var(--ink); color: #fff; }
+  .band .btn { background: var(--yellow); color: var(--ink); box-shadow: 0 5px 0 #fff; }
+  .learn { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 30px; }
+  .learn div { border-top: 8px solid var(--blue); padding-top: 14px; }
+  .learn div:nth-child(2) { border-color: var(--mint); }
+  .learn div:nth-child(3) { border-color: var(--coral); }
+  .steps { list-style: none; padding: 0; margin: 30px 0 0; counter-reset: s; max-width: 640px; }
+  .steps li { counter-increment: s; position: relative; padding: 0 0 26px 62px; }
+  .steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 0; width: 44px; height: 44px;
+    border-radius: 50%; background: var(--yellow); color: var(--ink);
+    font-family: "Fredoka", sans-serif; font-weight: 600; font-size: 1.3rem;
+    display: grid; place-items: center;
+  }
+  .steps strong { font-family: "Fredoka", sans-serif; font-size: 1.2rem; font-weight: 500; display: block; }
+  .note { font-size: .95rem; opacity: .85; margin-top: 26px; max-width: 60ch; }
+  .copy { font: inherit; font-weight: 700; font-size: .9rem; background: var(--yellow); color: var(--ink); border: 0; border-radius: 999px; padding: 4px 14px; margin-left: 6px; cursor: pointer; }
+  .price { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 10px 0 14px; }
+  .amt { font-family: "Fredoka", sans-serif; font-weight: 600; font-size: clamp(3.5rem, 10vw, 5rem); line-height: 1; color: var(--blue); }
+  .per { font-family: "Fredoka", sans-serif; font-size: 1.4rem; }
+  .about p { font-size: 1.25rem; max-width: 60ch; border-left: 8px solid var(--yellow); padding-left: 22px; margin: 0; }
+  footer { padding: 30px 0 50px; font-size: .95rem; }
+
+  @media (max-width: 760px) {
+    .hero .wrap, .learn { grid-template-columns: 1fr; }
+    nav a { margin: 0 16px 0 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn:hover { transform: none; } }
+
+  /* ===== KID-FRIENDLY THEME (delete this block to go back to the plain look) ===== */
+  body { background-color: #fff9ea; background-image: radial-gradient(#ffe3a3 2px, transparent 2px); background-size: 28px 28px; font-size: 19px; }
+  .logo { background: var(--yellow); padding: 6px 18px; border: 3px solid var(--ink); border-radius: 999px; display: inline-block; transform: rotate(-2deg); box-shadow: 0 4px 0 var(--ink); }
+  nav a { background: #fff; border: 3px solid var(--ink); border-radius: 999px; padding: 4px 14px; margin: 4px 0 4px 8px; display: inline-block; }
+  nav a:hover { background: var(--yellow); text-decoration: none; }
+  .mark { background: linear-gradient(transparent 58%, var(--yellow) 58%); padding: 0 .08em; }
+  .hero .wrap { position: relative; }
+  .deco { position: absolute; border: 3px solid var(--ink); border-radius: 50%; }
+  .d1 { width: 46px; height: 46px; background: var(--coral); top: -10px; right: 6%; }
+  .d2 { width: 28px; height: 28px; background: var(--mint); bottom: -14px; left: 46%; }
+  .btn { font-size: 1.3rem; padding: 16px 34px; border: 3px solid var(--ink); box-shadow: 0 6px 0 var(--coral); transition: transform .15s; }
+  .btn:hover { transform: translateY(3px) rotate(-1deg); box-shadow: 0 3px 0 var(--coral); }
+  .band .btn { border-color: var(--ink); box-shadow: 0 6px 0 #fff; }
+  .band .btn:hover { box-shadow: 0 3px 0 #fff; }
+  .block { border: 3px solid var(--ink); font-size: 1.1rem; }
+  .b-coral { background: #e8493c; }
+  .b-blue { background: #2f63e0; }
+  .learn div, .learn div:nth-child(2), .learn div:nth-child(3) { background: #fff; border: 3px solid var(--ink); border-radius: 24px; padding: 20px 22px; }
+  .learn div { box-shadow: 0 6px 0 var(--blue); transform: rotate(-1.5deg); }
+  .learn div:nth-child(2) { box-shadow: 0 6px 0 var(--mint); transform: rotate(1deg); }
+  .learn div:nth-child(3) { box-shadow: 0 6px 0 var(--coral); transform: rotate(-1deg); }
+  .steps li::before { width: 54px; height: 54px; border: 3px solid var(--ink); font-size: 1.6rem; }
+  .steps li { padding-left: 76px; }
+  .steps li:nth-child(2)::before { background: var(--mint); }
+  .steps li:nth-child(3)::before { background: var(--coral); }
+  .about p { background: #fff; border: 3px solid var(--ink); border-radius: 28px; padding: 24px 28px; margin-bottom: 26px; position: relative; box-shadow: 0 6px 0 var(--purple); }
+  .about p::after { content: ""; position: absolute; left: 44px; bottom: -17px; width: 28px; height: 28px; background: #fff; border-right: 3px solid var(--ink); border-bottom: 3px solid var(--ink); transform: rotate(45deg); }
+  .price { display: inline-flex; background: var(--yellow); border: 3px solid var(--ink); border-radius: 28px; padding: 14px 30px; box-shadow: 0 6px 0 var(--ink); transform: rotate(-2deg); }
+  .amt { color: var(--ink); }
+  .band { background: #2f63e0; border-radius: 44px 44px 0 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    .stack { animation: bob 4s ease-in-out infinite; }
+    @keyframes bob { 50% { transform: translateY(-10px) rotate(1deg); } }
+  }
+  @media (max-width: 760px) {
+    .deco { display: none; }
+    .learn div, .learn div:nth-child(2), .learn div:nth-child(3) { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Kids Who Code</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#learn">What you'll learn</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#join">Join</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <span class="deco d1" aria-hidden="true"></span><span class="deco d2" aria-hidden="true"></span>
+      <div>
+        <h1>Learn to code by making <span class="mark">your own games</span>.</h1>
+        <p>Fun, friendly Scratch lessons for kids, taught by another kid who loves coding.</p>
+        <a class="btn" href="#join">Sign up for a lesson</a>
+      </div>
+      <div class="stack" aria-hidden="true">
+        <div class="block hat b-yellow">when green flag clicked</div>
+        <div class="block b-purple">say <span class="pill">Hi! Let's make a game!</span></div>
+        <div class="block b-coral">repeat <span class="pill">10</span></div>
+        <div class="block b-blue indent">move <span class="pill">10</span> steps</div>
+        <div class="block b-mint indent">change color effect by <span class="pill">25</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about" class="about" style="padding:0 0 10px">
+    <div class="wrap">
+      <h2>About Elijah</h2>
+      <p>Hello young coders, my name is Elijah and it is my goal to make sure all kids can enjoy the amazing world of code. So that's why I made Kids Who Code, the first ever business to run coding lessons for kids by a kid! I always dreamed of being able to code when I was younger, but it was always too expensive or out of reach. Now it's not!</p>
+    </div>
+  </section>
+
+  <section id="learn">
+    <div class="wrap">
+      <h2>What you'll learn</h2>
+      <div class="learn">
+        <div>
+          <h3>Make things move</h3>
+          <p>Bring sprites to life with motion, sound, and costumes.</p>
+        </div>
+        <div>
+          <h3>Build real games</h3>
+          <p>Create a game you can play, share with friends, and keep improving.</p>
+        </div>
+        <div>
+          <h3>Think like a coder</h3>
+          <p>Practice loops, variables, and fixing bugs, the skills behind every program.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="padding-top:0">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><strong>Pick a time and a platform</strong>Lessons are after school, so choose a time that works for your family. They are online, on Zoom or Microsoft Teams, whichever you prefer.</li>
+        <li><strong>Code together</strong>We build a project step by step, and you get to add your own ideas.</li>
+        <li><strong>Show it off</strong>Finish with a game you made yourself and can share.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="pricing" style="padding-top:0">
+    <div class="wrap">
+      <h2>Pricing</h2>
+      <div class="price"><span class="amt">$15</span><span class="per">AUD per 45-minute lesson</span></div>
+      <p>Lessons are online, after school, on Zoom or Microsoft Teams. A parent or guardian arranges the booking and payment.</p>
+    </div>
+  </section>
+
+  <section id="join" class="band">
+    <div class="wrap">
+      <h2>Ready to start coding?</h2>
+      <p>Parents and guardians: email us to book a first lesson. We teach after school, on both Zoom and Microsoft Teams.</p>
+      <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=billimoriae@gmail.com&su=Booking%20a%20Kids%20Who%20Code%20lesson" target="_blank" rel="noopener">Email to book a lesson</a>
+      <p class="note">Or write to <strong id="addr" style="color:var(--yellow)">billimoriae@gmail.com</strong> <button id="copy" type="button" class="copy">Copy address</button></p>
+      <p class="note">All bookings and payments go through a parent or guardian.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Kids Who Code. Scratch is a project of the Scratch Foundation, and is not affiliated with this business.</div>
+</footer>
+
+<script>
+  document.getElementById("copy").addEventListener("click", function () {
+    var btn = this, addr = document.getElementById("addr");
+    function done() { btn.textContent = "Copied!"; setTimeout(function () { btn.textContent = "Copy address"; }, 2000); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(addr);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      try { document.execCommand("copy"); done(); } catch (e) { btn.textContent = "Select and copy it"; }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(addr.textContent).then(done, fallback);
+    } else { fallback(); }
+  });
+</script>
+</body>
+</html>

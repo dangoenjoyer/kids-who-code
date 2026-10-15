@@ -131,6 +131,10 @@
   .price { display: inline-flex; background: var(--yellow); border: 3px solid var(--ink); border-radius: 28px; padding: 14px 30px; box-shadow: 0 6px 0 var(--ink); transform: rotate(-2deg); }
   .amt { color: var(--ink); }
   .band { background: #2f63e0; border-radius: 44px 44px 0 0; }
+  .reviews .empty { background: #fff; border: 3px dashed var(--ink); border-radius: 24px; padding: 24px 28px; max-width: 640px; }
+  .reviews .empty p { margin: 0; }
+  .review-cta { margin: 26px 0 0; }
+  .stars { font-size: 2rem; letter-spacing: 4px; color: var(--yellow); -webkit-text-stroke: 1.5px var(--ink); line-height: 1; margin-bottom: 10px; }
   @media (prefers-reduced-motion: no-preference) {
     .stack { animation: bob 4s ease-in-out infinite; }
     @keyframes bob { 50% { transform: translateY(-10px) rotate(1deg); } }
@@ -221,12 +225,24 @@
     </div>
   </section>
 
+  <section id="reviews" class="reviews" style="padding-top:0">
+    <div class="wrap">
+      <h2>What parents say</h2>
+      <div class="empty">
+        <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p><strong>Reviews are coming soon!</strong> Had a lesson with us? Parents, tell us how it went and, with your permission, we'll share it here using just a first name.</p>
+      </div>
+      <p class="review-cta"><a class="btn" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=kidswhocodeofficial@gmail.com&amp;su=My%20review%20of%20Kids%20Who%20Code&amp;body=Hi%21%20Here%20is%20my%20review%20of%20Kids%20Who%20Code.%0A%0AMy%20first%20name%3A%0AMy%20child%27s%20age%3A%0AMy%20review%3A%0A%0ACan%20you%20share%20this%20review%20on%20your%20website%20using%20just%20my%20first%20name%3F%20%28yes%20or%20no%29%3A%0A" target="_blank" rel="noopener">Write a review</a></p>
+      <p class="note">Not using Gmail? Email kidswhocodeofficial@gmail.com with your review.</p>
+    </div>
+  </section>
+
   <section id="join" class="band">
     <div class="wrap">
       <h2>Ready to start coding?</h2>
       <p>Parents and guardians: email us to book a first lesson. We teach after school, on both Zoom and Microsoft Teams.</p>
-      <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=billimoriae@gmail.com&su=Booking%20a%20Kids%20Who%20Code%20lesson" target="_blank" rel="noopener">Email to book a lesson</a>
-      <p class="note">Or write to <strong id="addr" style="color:var(--yellow)">billimoriae@gmail.com</strong> <button id="copy" type="button" class="copy">Copy address</button></p>
+      <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=kidswhocodeofficial@gmail.com&su=Booking%20a%20Kids%20Who%20Code%20lesson" target="_blank" rel="noopener">Email to book a lesson</a>
+      <p class="note">Or write to <strong id="addr" style="color:var(--yellow)">kidswhocodeofficial@gmail.com</strong> <button id="copy" type="button" class="copy">Copy address</button></p>
       <p class="note">All bookings and payments go through a parent or guardian.</p>
     </div>
   </section>

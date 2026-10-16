@@ -30,14 +30,14 @@
   h3 { font-size: 1.3rem; }
   a:focus-visible, button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
   .wrap { max-width: 1000px; margin: 0 auto; padding: 0 22px; }
- 
+
   /* top bar */
   header { padding: 18px 0; }
   header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
   .logo { font-family: "Fredoka", sans-serif; font-weight: 600; font-size: 1.3rem; text-decoration: none; color: var(--ink); }
   nav a { margin-left: 20px; color: var(--ink); text-decoration: none; font-weight: 700; }
   nav a:hover { text-decoration: underline; text-decoration-thickness: 3px; text-decoration-color: var(--blue); }
- 
+
   /* hero */
   .hero { padding: 40px 0 70px; }
   .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
@@ -49,7 +49,7 @@
     box-shadow: 0 5px 0 var(--blue);
   }
   .btn:hover { transform: translateY(2px); box-shadow: 0 3px 0 var(--blue); }
- 
+
   /* the one memorable thing: a stack of code blocks */
   .stack { max-width: 360px; justify-self: center; width: 100%; }
   .block {
@@ -69,7 +69,7 @@
   .b-coral { background: var(--coral); }
   .indent { margin-left: 28px; }
   .pill { background: #fff; color: var(--ink); padding: 2px 12px; border-radius: 999px; margin: 0 2px; display: inline-block; }
- 
+
   /* sections */
   section { padding: 70px 0; }
   .band { background: var(--ink); color: #fff; }
@@ -94,13 +94,13 @@
   .per { font-family: "Fredoka", sans-serif; font-size: 1.4rem; }
   .about p { font-size: 1.25rem; max-width: 60ch; border-left: 8px solid var(--yellow); padding-left: 22px; margin: 0; }
   footer { padding: 30px 0 50px; font-size: .95rem; }
- 
+
   @media (max-width: 760px) {
     .hero .wrap, .learn { grid-template-columns: 1fr; }
     nav a { margin: 0 16px 0 0; }
   }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn:hover { transform: none; } }
- 
+
   /* ===== KID-FRIENDLY THEME (delete this block to go back to the plain look) ===== */
   body { background-color: #fff9ea; background-image: radial-gradient(#ffe3a3 2px, transparent 2px); background-size: 28px 28px; font-size: 19px; }
   .logo { background: var(--yellow); padding: 6px 18px; border: 3px solid var(--ink); border-radius: 999px; display: inline-block; transform: rotate(-2deg); box-shadow: 0 4px 0 var(--ink); }
@@ -153,7 +153,7 @@
 </style>
 </head>
 <body>
- 
+
 <header>
   <div class="wrap">
     <a class="logo" href="#top">Kids Who Code</a>
@@ -166,7 +166,7 @@
     </nav>
   </div>
 </header>
- 
+
 <main id="top">
   <div class="hero">
     <div class="wrap">
@@ -185,14 +185,14 @@
       </div>
     </div>
   </div>
- 
+
   <section id="about" class="about" style="padding:0 0 10px">
     <div class="wrap">
       <h2>About Elijah</h2>
       <p>Hello young coders, my name is Elijah and it is my goal to make sure all kids can enjoy the amazing world of code. So that's why I made Kids Who Code, the first ever business to run coding lessons for kids by a kid! I always dreamed of being able to code when I was younger, but it was always too expensive or out of reach. Now it's not!</p>
     </div>
   </section>
- 
+
   <section id="learn">
     <div class="wrap">
       <h2>What you'll learn</h2>
@@ -212,7 +212,7 @@
       </div>
     </div>
   </section>
- 
+
   <section id="how" style="padding-top:0">
     <div class="wrap">
       <h2>How it works</h2>
@@ -223,7 +223,7 @@
       </ol>
     </div>
   </section>
- 
+
   <section id="pricing" style="padding-top:0">
     <div class="wrap">
       <h2>Pricing</h2>
@@ -231,7 +231,7 @@
       <p>Lessons are online, after school, on Zoom or Microsoft Teams. A parent or guardian arranges the booking and payment.</p>
     </div>
   </section>
- 
+
   <section id="faq" class="faq" style="padding-top:0">
     <div class="wrap">
       <h2>Questions parents ask</h2>
@@ -241,7 +241,7 @@
       </details>
       <details>
         <summary>What age is it for?</summary>
-        <p>Our lessons suit beginners from about 7 to 12 years old. Tell us your child's age when you book and we will pick projects that fit.</p>
+        <p>Our lessons suit beginners from about 6 to 13 years old. Tell us your child's age when you book and we will pick projects that fit.</p>
       </details>
       <details>
         <summary>Does my child need to know how to code already?</summary>
@@ -261,7 +261,7 @@
       </details>
     </div>
   </section>
- 
+
   <section id="reviews" class="reviews" style="padding-top:0">
     <div class="wrap">
       <h2>What parents say</h2>
@@ -270,10 +270,9 @@
         <p><strong>Reviews are coming soon!</strong> Had a lesson with us? Parents, tell us how it went and, with your permission, we'll share it here using just a first name.</p>
       </div>
       <p class="review-cta"><a class="btn" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=kidswhocodeofficial@gmail.com&amp;su=My%20review%20of%20Kids%20Who%20Code&amp;body=Hi%21%20Here%20is%20my%20review%20of%20Kids%20Who%20Code.%0A%0AMy%20first%20name%3A%0AMy%20child%27s%20age%3A%0AMy%20review%3A%0A%0ACan%20you%20share%20this%20review%20on%20your%20website%20using%20just%20my%20first%20name%3F%20%28yes%20or%20no%29%3A%0A" target="_blank" rel="noopener">Write a review</a></p>
-      <p class="note">Not using Gmail? Email kidswhocodeofficial@gmail.com with your review.</p>
     </div>
   </section>
- 
+
   <section id="join" class="band">
     <div class="wrap">
       <h2>Ready to start coding?</h2>
@@ -284,11 +283,11 @@
     </div>
   </section>
 </main>
- 
+
 <footer>
   <div class="wrap">Kids Who Code. Scratch is a project of the Scratch Foundation, and is not affiliated with this business.</div>
 </footer>
- 
+
 <script>
   document.getElementById("copy").addEventListener("click", function () {
     var btn = this, addr = document.getElementById("addr");
